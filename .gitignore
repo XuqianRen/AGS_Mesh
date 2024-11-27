@@ -7,7 +7,6 @@ data
 **/PKG-INFO
 # submodules
 **__pycache__**
-*.png
 *.out
 eval
 *.npz
