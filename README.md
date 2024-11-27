@@ -1,14 +1,20 @@
 # AGS-Mesh: Adaptive Gaussian Splatting and Meshing with Geometric Priors for Indoor Room Reconstruction Using Smartphones
 
+### <p align="center">[🌐Project Page](https://github.com/XuqianRen/ags_mesh_website) | [🖨️ArXiv]() </p>
 
+
+<p align="center">
+    <img src="assets/pipeline_ags_mesh.png" alt="Pipeline" width="600"/>
+</p>
 
 ## Installation
 
 ```bash
 # download
-git clone https://github.com/XuqianRen/ags_mesh.git --recursive
+git clone https://github.com/maturk/dn-splatter.git --recursive
 
 #create a new environment
+git checkout ags_mesh
 conda env create --file environment.yml
 conda activate ags_mesh
 
@@ -32,7 +38,7 @@ python depth_normal_consistency.py --data_dir <dataset_path>
 
 ## note: we put pose in transform.json for scannetpp iphone sequences, so please first run dn-splatter with scannetpp dataset to get the transform.json
 
-# Second, please follow dn-splatter to generate the pre-train normal
+# Second, please follow dn-splatter main branch to generate the pre-train normal
 
 ```
 
@@ -153,3 +159,4 @@ python render.py -m output/mushroom/vr_room -s dataset/room_datasets/vr_room/iph
 python render.py -m output/scannetpp/8b5caf3398 -s dataset/scannetpp/data/8b5caf3398/iphone --iteration 30000 --voxel_size 0.01 --depth_trunc 10 --sdf_trunc 0.03 --skip_train --skip_test
 
 ```
+
