@@ -1,9 +1,9 @@
-import numpy as np
 import random
-import open3d as o3d
-from utils.graphics_utils import fov2focal, getWorld2View2
-import glob
+
 import cv2
+import numpy as np
+import open3d as o3d
+from utils.graphics_utils import getWorld2View2
 
 OPENGL_TO_OPENCV = np.array([[1, 0, 0, 0], [0, -1, 0, 0], [0, 0, -1, 0], [0, 0, 0, 1]])
 
@@ -23,7 +23,15 @@ def generate_ply_from_rgbd(train_cam_infos, meta, num_points, ply_path):
 
     points_list = []
     colors_list = []
-    fx, fy, cx, cy = meta["fl_x"], meta["fl_y"], meta["cx"], meta["cy"]
+    if "fl_x" in meta:
+        fx, fy, cx, cy = meta["fl_x"], meta["fl_y"], meta["cx"], meta["cy"]
+    else:
+        try:
+            fx, fy, cx, cy = meta["frames"][0]["fl_x"], meta["frames"][0]["fl_y"], meta["frames"][0]["cx"], meta["frames"][0]["cy"]
+        except KeyError:
+            # raise exception
+            print("Error: No intrinsics found")
+            quit()
     for train_cam in train_cam_infos:
         w2c = getWorld2View2(train_cam.R, train_cam.T)
         c2w = np.linalg.inv(w2c)
