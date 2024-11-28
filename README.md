@@ -34,12 +34,19 @@ cd ..
 ## Data Preparation
 ```bash
 # First generate depth mask based on depth normal and pre-train normal consistency check:
-python depth_normal_consistency.py --data_dir <dataset_path>
+python depth_normal_consistency.py --data_dir <dataset_path> --transform_name <transformation script.json>
+
+# this command will generate depth_normals and depth_normals_mask for the RGBD sequences
 
 ## note: we put pose in transform.json for scannetpp iphone sequences, so please first run dn-splatter with scannetpp dataset to get the transform.json
 
 # Second, please follow dn-splatter main branch to generate the pre-train normal
 
+```
+Commandline arguments you should adjust accordingly to generate depth mask
+```bash
+--data_dir # path to the sequence folder
+--transform_name # transforms.json or transformation_colmap.json file
 ```
 
 ## Training
@@ -48,8 +55,6 @@ To train a scene, simply use
 # currently we only support Scannetpp and MushRoom dataset
 python train.py -s <path to MuSHRoom or Scannetpp dataset> 
 --model_path <output_path> --depth_supervision --normal_supervision
-
-
 ```
 
 ## Testing
