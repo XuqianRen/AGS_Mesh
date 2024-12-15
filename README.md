@@ -4,7 +4,7 @@
 
 
 <p align="center">
-    <img src="assets/pipeline_ags_mesh.png" alt="Pipeline" width="600"/>
+    <img src="https://github.com/XuqianRen/AGS_Mesh/blob/main/assets/pipeline_ags_mesh.png?raw=true" alt="Pipeline" width="600"/>
 </p>
 
 ## Installation
