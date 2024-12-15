@@ -10,7 +10,7 @@ We address the problem of mesh reconstruction for indoor scenes by incorporating
     <img src="https://github.com/XuqianRen/AGS_Mesh/blob/main/assets/pipeline_ags_mesh.png?raw=true" alt="Pipeline" width="600"/>
 </p>
 
-Note: Our implementation is integrated into DN-Splatter, a framework developed by our group, to ensure ease of use. For more details, please visit https://github.com/maturk/dn-splatter. 
+Note: Our implementation have been integrated into DN-Splatter, a framework developed by our group, to ensure ease of use. For more details, please visit https://github.com/maturk/dn-splatter. 
 
 ## Installation
 
