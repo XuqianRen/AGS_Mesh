@@ -11,10 +11,9 @@
 
 ```bash
 # download
-git clone https://github.com/maturk/dn-splatter.git --recursive
+git clone https://github.com/XuqianRen/AGS_Mesh.git --recursive
 
 #create a new environment
-git checkout ags_mesh
 conda env create --file environment.yml
 conda activate ags_mesh
 
@@ -86,7 +85,12 @@ python render.py -m <output_path> -s <path to MuSHRoom or Scannetpp dataset>   -
 # get mesh with IsoOctree-based method
 python isooctree.py  <output_path/train/ours_iteration/> --transformation_path <pose_json_path> \
 --tsdf_rel 0.03 --output_mesh_file <output_path/output.ply> --subdivision_threshold=100
+
+# we also provide a version of IsoOctree that better support bad depth, run with
+python isooctree_dn.py  <output_path/train/ours_iteration/> --transformation_path <pose_json_path> \
+--tsdf_rel 0.03 --output_mesh_file <output_path/output.ply> --subdivision_threshold=100
 ```
+
 Commandline arguments you may need to adjust accordingly for meshing to get better quality
 ```bash
 --tsdf_rel # TSDF fusion tuning param
