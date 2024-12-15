@@ -2,10 +2,15 @@
 
 ### <p align="center">[🌐Project Page](https://xuqianren.github.io/ags_mesh_website/) | [🖨️ArXiv](https://arxiv.org/abs/2411.19271) </p>
 
+We address the problem of mesh reconstruction for indoor scenes by incorporating RGB images and sensor depth into the Gaussian Splatting regularization process. To mitigate the effects of noisy sensor depth data and pseudo-normals that lack multi-view consistency, we adaptively integrate these geometric priors during the Gaussian Splatting training. Additionally, we implement the IsoOctree mesh extraction method to enhance the reconstruction process.
+
+
 
 <p align="center">
     <img src="https://github.com/XuqianRen/AGS_Mesh/blob/main/assets/pipeline_ags_mesh.png?raw=true" alt="Pipeline" width="600"/>
 </p>
+
+Note: Our implementation is integrated into DN-Splatter, a framework developed by our group, to ensure ease of use. For more details, please visit https://github.com/maturk/dn-splatter. 
 
 ## Installation
 
