@@ -1,6 +1,6 @@
 # AGS-Mesh: Adaptive Gaussian Splatting and Meshing with Geometric Priors for Indoor Room Reconstruction Using Smartphones
 
-### <p align="center">[🌐Project Page](https://github.com/XuqianRen/ags_mesh_website) | [🖨️ArXiv]() </p>
+### <p align="center">[🌐Project Page](https://xuqianren.github.io/ags_mesh_website/) | [🖨️ArXiv](https://arxiv.org/abs/2411.19271) </p>
 
 
 <p align="center">
