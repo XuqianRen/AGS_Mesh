@@ -169,3 +169,16 @@ python render.py -m output/scannetpp/8b5caf3398 -s dataset/scannetpp/data/8b5caf
 
 ```
 
+We also release the code that implemented to DN-Splatter as a plug-in module, please refer to the project: https://github.com/maturk/dn-splatter for more details.
+
+
+If you find this work useful in your research, consider citing AGS-Mesh:
+```
+@article{ren2024ags,
+  title={AGS-Mesh: Adaptive Gaussian Splatting and Meshing with Geometric Priors for Indoor Room Reconstruction Using Smartphones},
+  author={Ren, Xuqian and Turkulainen, Matias and Wang, Jiepeng and Seiskari, Otto and Melekhov, Iaroslav and Kannala, Juho and Rahtu, Esa},
+  journal={arXiv preprint arXiv:2411.19271},
+  year={2024}
+}
+```
+
