@@ -23,20 +23,6 @@ OPENGL_TO_OPENCV = np.array([[1, 0, 0, 0], [0, -1, 0, 0], [0, 0, -1, 0], [0, 0, 
 SCALE_FACTOR = 0.001
 
 
-def get_camera_coords(img_size: tuple, pixel_offset: float = 0.5) -> np.ndarray:
-    image_coords = np.meshgrid(
-        np.arange(img_size[0]),
-        np.arange(img_size[1]),
-        indexing="xy",  # W = u by H = v
-    )
-    image_coords = (
-        np.stack(image_coords, axis=-1) + pixel_offset
-    )  # stored as (x, y) coordinates
-    image_coords = image_coords.reshape(-1, 2)
-    image_coords = image_coords.astype(np.float32)
-    return image_coords
-
-
 def depth_path_to_array(
     depth_path: Path, scale_factor: float = SCALE_FACTOR, return_color=False
 ) -> np.ndarray:
