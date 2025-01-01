@@ -10,9 +10,11 @@ from rich.console import Console
 from rich.progress import track
 from natsort import natsorted
 from copy import deepcopy
-from nerfstudio.utils.io import load_from_json
+from utils.general_utils import load_from_json
 from typing import Literal
 import tyro
+from utils.point_utils import backproject
+from utils.point_utils import compute_angle_between_normals
 
 from PIL import Image
 
@@ -33,50 +35,6 @@ def get_camera_coords(img_size: tuple, pixel_offset: float = 0.5) -> np.ndarray:
     image_coords = image_coords.reshape(-1, 2)
     image_coords = image_coords.astype(np.float32)
     return image_coords
-
-
-def backproject(
-    depths: np.ndarray,
-    fx: float,
-    fy: float,
-    cx: int,
-    cy: int,
-    img_size: tuple,
-    c2w: np.ndarray,
-):
-    if depths.ndim == 3:
-        depths = depths.reshape(-1, 1)
-    elif depths.shape[-1] != 1:
-        depths = depths[..., np.newaxis]
-        depths = depths.reshape(-1, 1)
-
-    image_coords = get_camera_coords(img_size)
-
-    means3d = np.zeros([img_size[0], img_size[1], 3], dtype=np.float32).reshape(-1, 3)
-    means3d[:, 0] = (image_coords[:, 0] - cx) * depths[:, 0] / fx  # x
-    means3d[:, 1] = (image_coords[:, 1] - cy) * depths[:, 0] / fy  # y
-    means3d[:, 2] = depths[:, 0]  # z
-
-    # to world coords
-    means3d = means3d @ np.linalg.inv(c2w[..., :3, :3]) + c2w[..., :3, 3]
-    return means3d, image_coords
-
-
-def compute_angle_between_normals(normal_map1, normal_map2):
-    norm1 = np.linalg.norm(normal_map1, axis=2, keepdims=True)
-    norm2 = np.linalg.norm(normal_map2, axis=2, keepdims=True)
-    normal_map1_normalized = normal_map1 / norm1
-    normal_map2_normalized = normal_map2 / norm2
-
-    dot_product = np.sum(normal_map1_normalized * normal_map2_normalized, axis=2)
-
-    dot_product = np.clip(dot_product, -1.0, 1.0)
-
-    angles = np.arccos(dot_product)
-
-    angles_degrees = np.degrees(angles)
-
-    return angles_degrees
 
 
 def depth_path_to_array(
