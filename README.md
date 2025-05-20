@@ -10,7 +10,14 @@ We address the problem of mesh reconstruction for indoor scenes by incorporating
     <img src="https://github.com/XuqianRen/AGS_Mesh/blob/main/assets/pipeline_ags_mesh.png?raw=true" alt="Pipeline" width="600"/>
 </p>
 
-Note: Our implementation have been integrated into DN-Splatter, a framework developed by our group, to ensure ease of use. For more details, please visit https://github.com/maturk/dn-splatter. 
+## Note: 
+
+1. Our implementation has been integrated into DN-Splatter, a framework developed by our group, to ensure ease of use. For more details, please visit https://github.com/maturk/dn-splatter. 
+2. We’re proud that our code inspired the KIRI Engine 3.14 iOS app. Congratulations to the team on such an amazing produc! Check out their demo here: [Twitter Demo](https://x.com/chrisatkiri/status/1917167184952115412?s=46&t=fXB8n7e7XgFTmb15GfimMw)
+
+## Updates:
+We release our per-scene results on MuSHRoom dataset in https://tuni-my.sharepoint.com/:f:/g/personal/xuqian_ren_tuni_fi/EhhOnEiSYGNNieKzChGY8k0BfSJ3Si_ov-xZY8OtKNabtg?e=XRNhnt.
+
 
 ## Installation
 
